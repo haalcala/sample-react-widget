@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+export interface AppProps {
+  id:string
+}
+
+const App:React.FC<AppProps>= ({id}) => {
+  const wrapper:HTMLElement|null = document.getElementById(id);
+
+  const ownerData:any=wrapper? ((wrapper as HTMLDivElement).getAttribute("owner-data") as any) :"";
+
+  const ownerHandler:any=wrapper? ((wrapper as HTMLDivElement).getAttribute("owner-handler") as any) :null;
+
+  const handleClick=()=>{
+    window.alert("Hello from the widget")
+  }
+
+  console.log("ownerData.ownerData:",ownerData.ownerData)
+  console.log("ownerHandler:",ownerHandler)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      This is my sample plugin!<br/>
+      ownerData: {ownerData} <br/>
+      <button onClick={handleClick}>Click me!</button>
+      <button onClick={ownerHandler}>Trigger ownerHandler</button>
     </div>
   );
 }

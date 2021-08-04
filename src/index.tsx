@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App id="my-widget-container" />
   </React.StrictMode>,
   document.getElementById('my-widget-container')
 );

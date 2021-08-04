@@ -5,7 +5,7 @@ module.exports = function override(config, env) {
     return {
         ...config,
         output: {
-            filename: "static/js/mywidget.js",
+            filename: "static/js/my-widget.js",
             chunkFilename: "static/js/my-widget.[name].js",
             path: "C:\\Users\\harol\\Software_Projects\\Test\\Javascript\\ReactJS\\Pluggable\\pluggable\\build",
             pathinfo: false,
@@ -13,6 +13,7 @@ module.exports = function override(config, env) {
             publicPath: "/",
             jsonpFunction: "webpackJsonmy-embeddable-widget",
             globalObject: "this",
+            crossOriginLoading: "anonymous"
         }
     };
 }
